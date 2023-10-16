@@ -8,37 +8,47 @@ type Token struct {
 }
 
 const (
-	EOF     = "EOF"
-	ILLEGAL = "ILLEGAL"
-
-	FUNCTION = "FUNCTION"
-	LET      = "LET"
-
-	IDENT = "IDENT"
-	INT   = "INT"
-
-	ASSIGN = "="
-	PLUS   = "+"
-	MINUS  = "-"
-
+	EOF       = "EOF"
+	ILLEGAL   = "ILLEGAL"
+	FUNCTION  = "FUNCTION"
+	LET       = "LET"
+	IDENT     = "IDENT"
+	INT       = "INT"
+	ASSIGN    = "="
+	PLUS      = "+"
+	MINUS     = "-"
 	COMMA     = ","
 	SEMICOLON = ";"
-
-	LPAREN = "("
-	RPAREN = ")"
-
-	LBRACE = "{"
-	RBRACE = "}"
-
-	TRUE  = "TRUE"
-	FALSE = "FALSE"
+	LPAREN    = "("
+	RPAREN    = ")"
+	LBRACE    = "{"
+	RBRACE    = "}"
+	TRUE      = "TRUE"
+	FALSE     = "FALSE"
+	BANG      = "!"
+	SLASH     = "/"
+	ASTERISK  = "*"
+	LT        = "<"
+	GT        = ">"
+	EQ        = "=="
+	NE        = "!="
+	LBRACKET  = "["
+	RBRACKET  = "]"
+	COLON     = ":"
+	STRING    = "STRING"
+	IF        = "IF"
+	ELSE      = "ELSE"
+	RETURN    = "RETURN"
 )
 
 var keywords = map[string]TokenType{
-	"fn":    FUNCTION,
-	"let":   LET,
-	"true":  TRUE,
-	"false": FALSE,
+	"fn":     FUNCTION,
+	"let":    LET,
+	"true":   TRUE,
+	"false":  FALSE,
+	"if":     IF,
+	"else":   ELSE,
+	"return": RETURN,
 }
 
 func IdentifierFinder(identifier string) TokenType {
