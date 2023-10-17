@@ -115,8 +115,11 @@ func (l *Lexer) readString() string {
 	for readDoubleQuote(l.ch) {
 		l.readChar()
 	}
-	l.readChar() // read the closing double quote
-	return l.input[currentPosition:l.position]
+
+	sequence := l.input[currentPosition:l.position] // up until that point is the string
+	l.readChar()                                    // skip the closing double quote
+
+	return sequence
 }
 
 func (l *Lexer) readIdentifier() string {
