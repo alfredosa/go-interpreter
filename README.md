@@ -80,3 +80,22 @@ In other languages, like Python, the length of whitespace is significant. That m
 can’t just “eat up” the whitespace and newline characters. It has to output the whitespace
 characters as tokens so the parser can later on make sense of them (or output an error, of
 course, if there are not enough or too many).
+
+## The parser
+
+The parser takes the list of tokens from the lexer and turns it into an AST. The parser is also called a syntactic analyzer. The one we are going to build is top down, recursive and Pratt parser. It is also called a recursive descent parser. It is adviced for beginners to start so because it is how we usually think about parsing code. It is also easy to implement.
+
+Here is a fully valid program written in Monkey:
+
+```go 
+let x = 10;
+let y = 15;
+let add = fn(a, b) {
+return a + b;
+};
+```
+
+Programs in Monkey are a series of statements. In this example we can see three statements,
+three variable bindings - let statements - of the following form:
+
+`let <identifier> = <expression>;`
